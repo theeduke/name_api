@@ -1,2 +1,3 @@
 configuration.py/
-env/
+.env/
+__pycache__/
