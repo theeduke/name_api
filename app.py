@@ -20,8 +20,8 @@ def create_table():
 @app.route('/api', methods=['POST'])
 def create_person():
     data = request.get_json()
-    if 'name' not in data or 'age' not in data:
-        abort(400) # Bad request
+    #if 'name' not in data or 'age' not in data:
+        #abort(400) # Bad request
     name = data['name']
     age = data['age']
 
