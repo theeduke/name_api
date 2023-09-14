@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, abort
-from configuration import DATABASE_URI
+from config import DATABASE_URI
 import psycopg2
 
 app = Flask(__name__)
