@@ -41,7 +41,8 @@ def create_person():
 def get_person(user_id):
     conn = get_db_connection()
     cursor = conn.cursor()
-    person = cursor.execute('SELECT * FROM persons WHERE id = %s', (user_id,)).fetchone()
+    cursor.execute('SELECT * FROM persons WHERE id = %s', (user_id,))
+    person = cursor.fetchone()
     conn.close()
 
     if person is None:
