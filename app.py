@@ -48,7 +48,7 @@ def get_person(user_id):
     if person is None:
         abort(404) # Not found
 
-    return jsonify({'id': person['id'], 'name': person['name'], 'age': person['age']}), 200
+    return jsonify({'id': person[0], 'name': person[1], 'age': person[2]}), 200
 
 #Update Person
 @app.route('/api/<int:user_id>', methods=['PUT'])
