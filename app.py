@@ -30,7 +30,7 @@ def create_person():
 
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute('INSERT INTO persons (name, age) VALUES (?, ?)', (name, age))
+    cursor.execute('INSERT INTO persons (name, age) VALUES (?, ?);', (name, age))
     conn.commit()
     conn.close()
 
