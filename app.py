@@ -29,7 +29,8 @@ def create_person():
     age = data.get['age']
 
     conn = get_db_connection()
-    conn.execute('INSERT INTO persons (name, age) VALUES (?, ?)', (name, age))
+    cursor = conn.cursor()
+    cursor.execute('INSERT INTO persons (name, age) VALUES (?, ?)', (name, age))
     conn.commit()
     conn.close()
 
@@ -39,7 +40,8 @@ def create_person():
 @app.route('/api/<int:user_id>', methods=['GET'])
 def get_person(user_id):
     conn = get_db_connection()
-    person = conn.execute('SELECT * FROM persons WHERE id = ?', (user_id,)).fetchone()
+    cursor = conn.cursor()
+    person = cursor.execute('SELECT * FROM persons WHERE id = ?', (user_id,)).fetchone()
     conn.close()
 
     if person is None:
@@ -55,7 +57,8 @@ def update_person(user_id):
     age = data.get('age')
 
     conn = get_db_connection()
-    conn.execute('UPDATE persons SET name = ?, age = ? WHERE id = ?', (name, age, user_id))
+    cursor =  conn.cursor()
+    cursor.execute('UPDATE persons SET name = ?, age = ? WHERE id = ?', (name, age, user_id))
     conn.commit()
     conn.close()
 
@@ -65,7 +68,8 @@ def update_person(user_id):
 @app.route('/api/<int:user_id>', methods=['DELETE'])
 def delete_person(user_id):
     conn = get_db_connection()
-    conn.execute('DELETE FROM persons WHERE id = ?', (user_id,))
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM persons WHERE id = ?', (user_id,))
     conn.commit()
     conn.close()
 
