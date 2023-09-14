@@ -25,8 +25,8 @@ def create_person():
     data = request.get_json()
     #if 'name' not in data or 'age' not in data:
         #abort(400) # Bad request
-    name = data.get['name']
-    age = data.get['age']
+    name = data.get('name')
+    age = data.get('age')
 
     conn = get_db_connection()
     cursor = conn.cursor()
