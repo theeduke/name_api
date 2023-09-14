@@ -41,7 +41,7 @@ def create_person():
 def get_person(user_id):
     conn = get_db_connection()
     cursor = conn.cursor()
-    person = cursor.execute('SELECT * FROM persons WHERE id = ?', (user_id,)).fetchone()
+    person = cursor.execute('SELECT * FROM persons WHERE id = %s', (user_id,)).fetchone()
     conn.close()
 
     if person is None:
@@ -58,7 +58,7 @@ def update_person(user_id):
 
     conn = get_db_connection()
     cursor =  conn.cursor()
-    cursor.execute('UPDATE persons SET name = ?, age = ? WHERE id = ?', (name, age, user_id))
+    cursor.execute('UPDATE persons SET name = %s, age = %s WHERE id = %s', (name, age, user_id))
     conn.commit()
     conn.close()
 
@@ -69,7 +69,7 @@ def update_person(user_id):
 def delete_person(user_id):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute('DELETE FROM persons WHERE id = ?', (user_id,))
+    cursor.execute('DELETE FROM persons WHERE id = %s', (user_id,))
     conn.commit()
     conn.close()
 
