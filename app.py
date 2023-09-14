@@ -1,6 +1,9 @@
 from flask import Flask, jsonify, request, abort
-from config import DATABASE_URI
+from dotenv import load_dotenv
+load_dotenv
+import os
 import psycopg2
+DATABASE_URI=os.getenv("DATABASE_URI")
 
 app = Flask(__name__)
 
