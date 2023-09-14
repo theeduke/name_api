@@ -3,13 +3,13 @@ from dotenv import load_dotenv
 load_dotenv
 import os
 import psycopg2
-DATABASE_URI=os.getenv("DATABASE_URI")
+DATABASE_URL=os.getenv("DATABASE_URL")
 
 app = Flask(__name__)
 
 #Define Database Connection
 def get_db_connection():
-    conn = psycopg2.connect(DATABASE_URI)
+    conn = psycopg2.connect(DATABASE_URL)
     return conn
 
 #Create Database Table
