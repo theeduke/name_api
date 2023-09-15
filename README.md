@@ -3,11 +3,11 @@
 The REST API is built using Flask framework and PostgreSQL for managing persons. It allows you to perform CRUD (Create, Read, Update, Delete) operations on a "person" resource.
 
 ## Table of Contents
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [UML Diagram](#database-modeling-)
-- [Documentation](#documentation-)
-- [Link to api](#link-to-api-)
+- [Prerequisites](#prerequisites)  
+- [Installation](#installation)  
+- [UML Diagram](#database-modeling)  
+- [Documentation](#documentation)  
+- [Link to api](#link-to-api)  
 
 ## Prerequisites
 Before getting started, ensure you have the following installed on your system:
